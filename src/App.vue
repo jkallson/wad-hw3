@@ -1,8 +1,6 @@
 <template>
     <main id="app">
-        <header>
-            <strong>Welcome to your dashboard!</strong>
-        </header>
+        <Header></Header>
         <section id="container">
             <section id="main">
                 <div class="content">
@@ -96,10 +94,12 @@
 </template>
 
 <script>
-
+    import Header from "./components/Header";
     export default {
         name: 'app',
-        components: {}
+        components: {
+            Header,
+        }
     }
 </script>
 
@@ -125,15 +125,6 @@
 
     .clear-fix {
         clear: both;
-    }
-
-    header {
-        padding: 20px;
-        background-color: #2196F3;
-        color: #ffffff;
-        text-align: center;
-        margin-bottom: 10px;
-        height: 60px;
     }
 
     footer {
