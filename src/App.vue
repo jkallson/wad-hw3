@@ -4,75 +4,9 @@
         <section id="container">
             <section id="main">
                 <div class="content">
-                    <div id="profile-container" class="tab active">
-                        <div id="profile">
-                            <div class="avatar">
-                                <img src="./assets/me.png" id="picture" alt="My picture">
-                            </div>
-                            <div class="info">
-                                <ul>
-                                    <li id="name">John Doe</li>
-                                    <li id="birthdate">11/10/1990</li>
-                                    <li id="faculty">Software Engineering</li>
-                                </ul>
-                            </div>
-                            <div id="gpa">
-                                <strong>2.75</strong>
-                            </div>
-                            <div class="clear-fix"></div>
-                        </div>
-                    </div>
-                    <div id="courses-container" class="tab">
-                        <h1 class="title">Courses</h1>
-                        <table id="courses">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Course Title</th>
-                                <th>Semester</th>
-                                <th>Grade</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Agile software development</td>
-                                <td>1</td>
-                                <td>82</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>System modeling</td>
-                                <td>1</td>
-                                <td>85</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Object-oriented programming</td>
-                                <td>2</td>
-                                <td>99</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Estonian language Level A2</td>
-                                <td>2</td>
-                                <td>65</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <br>
-                        <br>
-                        <div>
-                            <button id="add-course-button" class="blue-button">+</button>
-                            <span id="add-course">
-                                <input class="input" type="text" placeholder="Course title" id="title">
-                                <input class="input" type="number" min="1" max="8" placeholder="Semester" id="semester">
-                                <input class="input" type="number" min="0" max="100" placeholder="Grade" id="grade">
-                                <button class="green-button" id="save-course">Save</button>
-                                <button class="grey-button" id="cancel-course">Cancel</button>
-                            </span>
-                        </div>
-                    </div>
+                   <Profile :profile="profile"></Profile>
+                    <Courses></Courses>
+
                 </div>
                 <div class="controls">
                     <button id="profile-button" class="pill active">Profile</button>
@@ -87,12 +21,23 @@
 <script>
     import Header from "./components/Header";
     import Footer from "./components/Footer";
+    import Profile from "./components/Profile";
+    import User from "./models/User";
+    import Courses from "./components/Courses";
     export default {
         name: 'app',
         components: {
+            Courses,
+            Profile,
             Header,
             Footer
+        },
+        data: () => {
+            return{
+                profile: new User("Ahto","Leemet","17/06/1996","Software Engineering")
+            }
         }
+
     }
 </script>
 
@@ -115,13 +60,6 @@
         min-height: 100%;
         padding-bottom: 110px;
     }
-
-    .clear-fix {
-        clear: both;
-    }
-
-
-
     #container {
         width: 80%;
         max-width: 900px;
@@ -129,49 +67,6 @@
         padding: 15px;
         background-color: #ffffff;
         margin: 0 auto;
-    }
-
-    #profile {
-        border-bottom: 1px dashed #a7a7a7;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-    }
-
-    #profile div:not(.clear-fix) {
-        height: 190px;
-        float: left;
-        position: relative;
-    }
-
-    #profile .avatar {
-        width: 35%;
-        text-align: center;
-    }
-
-    #profile .avatar img {
-        width: 180px;
-    }
-
-    #profile .info {
-        width: 45%;
-    }
-
-    #profile #gpa {
-        width: 20%;
-    }
-
-    #profile #gpa strong {
-        position: absolute;
-        width: 100%;
-        height: 60px;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto auto;
-        font-size: 60px;
-        line-height: 60px;
-        text-align: center;
     }
 
     .content {
