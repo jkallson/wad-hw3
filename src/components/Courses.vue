@@ -22,10 +22,6 @@
         <br>
         <br>
         <CourseAddition></CourseAddition>
-
-
-
-
     </div>
 </template>
 

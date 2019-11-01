@@ -4,13 +4,13 @@
         <section id="container">
             <section id="main">
                 <div class="content">
-                   <Profile :profile="profile"></Profile>
-                    <Courses></Courses>
-
+                    <Profile :class="{active: activeTabName === 'Profile'}" :profile="profile"></Profile>
+                    <Courses :class="{active: activeTabName === 'Courses'}"></Courses>
                 </div>
+
                 <div class="controls">
-                    <button id="profile-button" class="pill active">Profile</button>
-                    <button id="courses-button" class="pill">Courses</button>
+                    <button @click="setActiveTabName('Profile')" id="profile-button" class="pill" :class="{active: activeTabName === 'Profile'}">Profile</button>
+                    <button @click="setActiveTabName('Courses')" id="courses-button" class="pill" :class="{active: activeTabName === 'Courses'}">Courses</button>
                 </div>
             </section>
         </section>
@@ -34,9 +34,15 @@
         },
         data: () => {
             return{
+                activeTabName: "Profile",
                 profile: new User("Ahto","Leemet","17/06/1996","Software Engineering")
             }
-        }
+        },
+        methods: {
+            setActiveTabName(name) {
+                this.activeTabName = name;
+            }
+        },
 
     }
 </script>
