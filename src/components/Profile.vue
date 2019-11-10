@@ -12,7 +12,7 @@
                 </ul>
             </div>
             <div id="gpa">
-                <strong>2.75</strong>
+                <strong>{{profile.gpa}}</strong>
             </div>
             <div class="clear-fix"></div>
         </div>
@@ -20,11 +20,16 @@
 </template>
 
 <script>
+
+
     export default {
         name: "Profile",
+
+
         props:{
-            profile: Object
-        }
+            profile: Object,
+        },
+
     }
 </script>
 

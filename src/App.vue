@@ -5,7 +5,7 @@
             <section id="main">
                 <div class="content">
                     <Profile :class="{active: activeTabName === 'Profile'}" :profile="profile"></Profile>
-                    <Courses :class="{active: activeTabName === 'Courses'}"></Courses>
+                    <Courses :class="{active: activeTabName === 'Courses'}" :profile="profile"> </Courses>
                 </div>
 
                 <div class="controls">
@@ -24,6 +24,8 @@
     import Profile from "./components/Profile";
     import User from "./models/User";
     import Courses from "./components/Courses";
+
+
     export default {
         name: 'app',
         components: {
@@ -35,13 +37,16 @@
         data: () => {
             return{
                 activeTabName: "Profile",
-                profile: new User("Ahto","Leemet","17/06/1996","Software Engineering")
+                profile: new User("Ahto","Leemet","17/06/1996","Software Engineering",0),
             }
         },
+
         methods: {
+
             setActiveTabName(name) {
                 this.activeTabName = name;
-            }
+            },
+
         },
 
     }

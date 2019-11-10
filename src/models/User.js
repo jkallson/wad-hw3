@@ -6,4 +6,5 @@ export default class User{
         this.faculty = faculty;
         this.gpa = gpa;
     }
+
 }
