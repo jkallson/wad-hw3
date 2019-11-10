@@ -32,6 +32,9 @@
 
         methods: {
             toggleVisibility() {
+                this.courseValue = "";
+                this.semesterValue = 0;
+                this.gradeValue = 0;
                 this.isVisible = !this.isVisible;
             },
 
@@ -45,7 +48,9 @@
                 this.gradeValue = 0;
                 this.toggleVisibility();
                 this.calcGPA();
-            }
+            },
+
+
 
         },
 
